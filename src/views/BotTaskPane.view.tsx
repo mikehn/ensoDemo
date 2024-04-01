@@ -7,7 +7,7 @@ const BotTaskPane = ({ className, avatar }: Props) => {
   return (
     <div className={'card h-full w-96 bg-base-100 shadow-xl ' + className}>
       <div className="flex size-full flex-col content-start items-start justify-start">
-        <div className="card-body h-20 w-full border-b-2 border-[#231269]/10 ">
+        <div className="card-body h-20 min-h-44 w-full border-b-2 border-[#231269]/10 ">
           <TaskOverview />
         </div>
         <div className="card-body h-3/5 bg-[#F9F8FF] px-8 py-20 2xl:px-72 ">

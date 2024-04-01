@@ -4,7 +4,7 @@ const Discover = () => {
   return (
     <img
       style={{ objectFit: 'cover', width: '100%' }}
-      src="/ensoDemo/construct2.png"
+      src="/construct2.png"
       alt="Discover"
     />
   )

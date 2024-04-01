@@ -17,7 +17,7 @@ const BotDash = () => {
         avatars={avatarImages}
         selected={id || ''}
         onClick={(id) => {
-          navigate(`/ensoDemo/my-bots/${id}`)
+          navigate(`/my-bots/${id}`)
         }}
         onNewAvatarClick={() => {
           const modal = document?.getElementById(

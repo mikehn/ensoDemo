@@ -5,7 +5,7 @@ const Home = () => {
     <img
       style={{ objectFit: 'cover', width: '100%' }}
       height="80%"
-      src="/ensoDemo/construct.png"
+      src="/construct.png"
       alt="Discover"
     />
   )

@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import Avatar from '.'
+import Avatar from './_index'
 
 describe('<Avatar />', () => {
   const props = {

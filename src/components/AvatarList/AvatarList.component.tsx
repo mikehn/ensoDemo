@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import Avatar from 'components/Avatar/Avatar.component'
 import { useState } from 'react'
 
 type Props = {
@@ -26,7 +26,7 @@ const AvatarList = ({
       }
     >
       {avatars.map((avatar, i) => (
-        <AvatarIcon
+        <Avatar
           key={i}
           avatar={avatar}
           selected={selected === String(i)}
@@ -52,34 +52,6 @@ const AvatarList = ({
         >
           +
         </div>
-      </div>
-    </div>
-  )
-}
-
-const AvatarIcon = ({
-  avatar,
-  selected,
-  onClick
-}: {
-  avatar: string
-  selected: boolean
-  onClick: () => void
-}) => {
-  return (
-    <div
-      className="avatar mb-3 content-center justify-center"
-      onClick={onClick}
-    >
-      <div
-        className={classNames('min-w-12 w-12 rounded-full', {
-          'border-[2px] bg-orange-200 border-a-purple-strong outline  outline-[4px] outline-a-purple-light animate-jump animate-once animate-ease-in ':
-            selected,
-          'border-[3px] transition bg-white border-gray-200 hover:border-violet-400 hover:bg-slate-200 hover:scale-105 ':
-            !selected
-        })}
-      >
-        <img src={avatar} />
       </div>
     </div>
   )

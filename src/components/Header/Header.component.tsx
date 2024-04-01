@@ -40,11 +40,10 @@ const MainNavigation = () => {
     'btn btn-sm m-2 bg-main outline-none border-none shadow-none'
   const selectedBtnClassName =
     'bg-white btn btn-sm m-2 border-2 border-gray-200'
-  const isBotPage = location.pathname.startsWith('/my-bots')
 
-  const isDiscoverPage = location.pathname.startsWith('/discover')
-  const isHomePage = location.pathname.startsWith('/home')
-
+  const isDiscoverPage = location.pathname.includes('discover')
+  const isHomePage = location.pathname.includes('home')
+  const isBotPage = !isDiscoverPage && !isHomePage //location.pathname.includes('my-bots')
   return (
     <div>
       <Link to="/ensoDemo/home">

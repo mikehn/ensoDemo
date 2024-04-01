@@ -10,11 +10,11 @@ const router = createBrowserRouter([
     element: <div>PlaceHolder</div>
   },
   {
-    path: '/ensoDemo/my-Bots',
+    path: '/my-Bots',
     element: <div>Bot main dashboard place holder</div>
   },
   {
-    path: '/ensoDemo/my-Bots/:id',
+    path: '/my-Bots/:id',
     element: (
       <Layout>
         <BotDash />
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: '/ensoDemo/discover',
+    path: '/discover',
     element: (
       <Layout>
         <Discover />
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: '/ensoDemo/Home',
+    path: '/Home',
     element: (
       <Layout>
         <Home />
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: '/ensoDemo',
+    path: '/',
     element: (
       <Layout>
         <BotDash />

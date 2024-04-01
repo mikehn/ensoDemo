@@ -7,7 +7,8 @@ import BotInfoCard from 'components/BotInfoCard.component.tsx/BotInfoCard.compon
 import BotTaskPane from './BotTaskPane.view'
 import BotTaskListPane from './BotTaskListPane.view'
 const BotDash = () => {
-  const { id } = useParams()
+  let { id } = useParams()
+  if (!id) id = '0'
   const navigate = useNavigate()
   return (
     <div className="flex h-[calc(100%-32px)]">

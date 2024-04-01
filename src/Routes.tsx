@@ -41,7 +41,7 @@ const router = createBrowserRouter([
     path: '/ensoDemo',
     element: (
       <Layout>
-        <Home />
+        <BotDash />
       </Layout>
     )
   }

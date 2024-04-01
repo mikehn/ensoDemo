@@ -6,10 +6,6 @@ import Layout from 'views/Layout.view'
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <div>PlaceHolder</div>
-  },
-  {
     path: '/my-Bots',
     element: <div>Bot main dashboard place holder</div>
   },

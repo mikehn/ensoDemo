@@ -36,6 +36,14 @@ const router = createBrowserRouter([
         <Home />
       </Layout>
     )
+  },
+  {
+    path: '/ensoDemo',
+    element: (
+      <Layout>
+        <Home />
+      </Layout>
+    )
   }
 ])
 

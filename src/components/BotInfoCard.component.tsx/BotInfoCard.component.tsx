@@ -14,7 +14,7 @@ const BotInfoCard = ({ className, avatar, bid }: Props) => {
     <div className={className || ''}>
       <div className="card card-compact h-full w-[420px] bg-base-100 shadow-xl">
         <figure className="h-40 min-h-40">
-          <img height={148} src="/bg1.jpeg" alt="bla" />
+          <img height={148} src="/ensoDemo/bg1.jpeg" alt="bla" />
         </figure>
 
         <div className="avatar -mt-20 ml-4">

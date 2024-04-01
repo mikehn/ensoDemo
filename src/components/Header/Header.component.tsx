@@ -25,7 +25,7 @@ const Header = () => {
 
         <div className="avatar mr-2">
           <div className="w-6 rounded-full">
-            <img src="/bp.png" />
+            <img src="/ensoDemo/bp.png" />
           </div>
         </div>
       </div>
@@ -46,7 +46,7 @@ const MainNavigation = () => {
   const isBotPage = !isDiscoverPage && !isHomePage //location.pathname.includes('my-bots')
   return (
     <div>
-      <Link to="/home">
+      <Link to="/ensoDemo/home">
         <button
           className={classNames({
             [selectedBtnClassName]: isHomePage,
@@ -57,7 +57,7 @@ const MainNavigation = () => {
           Home
         </button>
       </Link>
-      <Link to="/my-bots/0">
+      <Link to="/ensoDemo/my-bots/0">
         <button
           className={classNames({
             [selectedBtnClassName]: isBotPage,
@@ -68,7 +68,7 @@ const MainNavigation = () => {
           My Bots
         </button>
       </Link>
-      <Link to="/discover">
+      <Link to="/ensoDemo/discover">
         <button
           className={classNames({
             [selectedBtnClassName]: isDiscoverPage,

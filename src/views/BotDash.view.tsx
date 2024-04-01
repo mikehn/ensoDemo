@@ -17,7 +17,7 @@ const BotDash = () => {
         avatars={avatarImages}
         selected={id || ''}
         onClick={(id) => {
-          navigate(`/my-bots/${id}`)
+          navigate(`/ensoDemo/my-bots/${id}`)
         }}
         onNewAvatarClick={() => {
           const modal = document?.getElementById(
@@ -35,7 +35,7 @@ const BotDash = () => {
       <BotTaskPane
         className="mx-4 my-[10px] grow shadow-lg"
         avatar={avatarImages[Number(id)]}
-        bid={}
+        bid={Number(id) || 0}
       />
 
       <BotTaskListPane className="my-[10px] ml-2 mr-4 w-1/4 shadow-lg" />

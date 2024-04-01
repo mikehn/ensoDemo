@@ -16,18 +16,38 @@ const BotDash = () => {
         avatars={avatarImages}
         selected={id || ''}
         onClick={(id) => {
-          navigate(`/my-bots/${id}`)
+          navigate(`/ensoDemo/my-bots/${id}`)
         }}
-        onNewAvatarClick={() => {}}
+        onNewAvatarClick={() => {
+          const modal = document?.getElementById(
+            'my_modal_1'
+          ) as HTMLDialogElement
+          modal?.showModal()
+        }}
       />
       <BotInfoCard
         className="my-[10px] h-full min-h-full"
         avatar={avatarImages[Number(id)]}
+        bid={Number(id) || 0}
       />
 
       <BotTaskPane className="mx-4 my-[10px] grow shadow-lg" />
 
       <BotTaskListPane className="my-[10px] ml-2 mr-4 w-1/5 shadow-lg" />
+
+      {/* TODO: Extract to modal component */}
+      <dialog id="my_modal_1" className="modal">
+        <div className="modal-box">
+          <h3 className="text-lg font-bold">Add New Bot</h3>
+          <p className="py-4">Add new Bot place holder</p>
+          <div className="modal-action">
+            <form method="dialog">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   )
 }

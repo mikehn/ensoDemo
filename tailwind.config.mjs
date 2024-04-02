@@ -2,7 +2,6 @@
 import colors from 'tailwindcss/colors'
 
 export default {
-  darkMode: false,
   content: ['./src/**/*.{mjs,js,ts,jsx,tsx}'],
   theme: {
     colors: {

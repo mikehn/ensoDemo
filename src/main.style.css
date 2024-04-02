@@ -26,12 +26,6 @@ html {
   color-scheme: only light;
 }
 
-/* Firefox */
-@media (prefers-color-scheme: dark) {
-  :root {
-      color-scheme: light;
-  }
-}
 
 
 :root {

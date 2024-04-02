@@ -1,7 +1,9 @@
 import classNames from 'classnames'
 import Badge from 'components/Badge/Badge.component'
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { Tasks } from 'utils/MockData'
+import './BotTaskListPane.style.css'
+
 type Status = 'Completed' | 'Up Next' | 'Waiting...'
 type Props = { className?: string }
 type TaskFilters = 'Daily' | 'Weekly' | 'Completed'
@@ -67,8 +69,41 @@ type CardListProps = {
 }
 
 const TaskCardList = ({ cards, onClick }: CardListProps) => {
+  const listRef = useRef<HTMLDivElement | null>(null)
+  const [isScrolledToBottom, setIsScrolledToBottom] = useState(false)
+
+  const checkIfScrolledToBottom = () => {
+    const list = listRef.current
+    if (list) {
+      const { scrollTop, scrollHeight, clientHeight } = list
+      const isAtBottom = scrollTop + clientHeight === scrollHeight
+      console.log('>>>>>>>>>>>>', isAtBottom)
+      setIsScrolledToBottom(isAtBottom)
+    }
+  }
+
+  useEffect(() => {
+    const list = listRef.current
+    if (list) {
+      list.addEventListener('scroll', checkIfScrolledToBottom)
+    }
+
+    return () => {
+      if (list) {
+        list.removeEventListener('scroll', checkIfScrolledToBottom)
+      }
+    }
+  }, [])
   return (
-    <div className="h-[94%] overflow-y-hidden pr-2 hover:overflow-y-auto">
+    <div
+      ref={listRef}
+      className={classNames(
+        'h-[94%] overflow-y-hidden pr-2 hover:overflow-y-auto',
+        {
+          'fade-bottom': !isScrolledToBottom
+        }
+      )}
+    >
       {cards.map((card) => (
         <TaskCard
           key={card.id}
@@ -104,7 +139,7 @@ const TaskCard = ({
 
   let shadowClass = 'shadow-sm'
   if (status === 'Up Next') {
-    shadowClass = 'shadow-lg'
+    shadowClass = 'shadow-lg shadow-[#401D6D]/15'
   }
   return (
     <div

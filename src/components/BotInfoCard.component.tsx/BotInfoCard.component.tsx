@@ -12,7 +12,7 @@ const BotInfoCard = ({ className, avatar, bid }: Props) => {
 
   return (
     <div className={className || ''}>
-      <div className="card card-compact h-full w-[420px] bg-base-100 shadow-xl">
+      <div className="card card-compact h-full w-[420px] overflow-auto bg-base-100 shadow-xl">
         <figure className="h-40 min-h-40">
           <img height={148} src="/bg1.jpeg" alt="bla" />
         </figure>

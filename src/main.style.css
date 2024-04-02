@@ -33,6 +33,10 @@ html {
   }
 }
 
+
+:root {
+  color-scheme: light;
+}
 /* Chrome */
 @media (forced-colors: active) {
   :root {

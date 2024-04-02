@@ -11,7 +11,7 @@ const Header = () => {
   if (location) console.log(location)
   //if(location.pathname)
   return (
-    <div className="flex justify-between border-b-2  border-gray-200 bg-main">
+    <div className="flex h-16 content-center items-center  justify-between border-b-2 border-gray-200 bg-main">
       <div className="p-2 pl-8 transition ease-in-out hover:scale-110">
         <img src={logo} alt="logo"></img>
       </div>

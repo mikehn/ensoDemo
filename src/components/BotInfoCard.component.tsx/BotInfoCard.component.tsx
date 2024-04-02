@@ -4,7 +4,7 @@ import wrench from 'assets/icons/wrench.svg'
 import link from 'assets/icons/link.svg'
 import classNames from 'classnames'
 import { randNames, botCard } from 'utils/MockData'
-
+import avatars from 'assets/avatars'
 type Props = { className?: string; avatar: string; bid: number }
 
 const BotInfoCard = ({ className, avatar, bid }: Props) => {
@@ -106,9 +106,71 @@ const BotInfoCard = ({ className, avatar, bid }: Props) => {
             </div>
           </div>
         </div>
+        <div className="card-body grow justify-end">
+          <div className="w-full rounded-lg bg-[#FAFAFA] p-4">
+            <div className="mb-2 text-[17px] font-semibold">
+              Discover more bots
+            </div>
+            <p>
+              Explore a curated selection of innovative bots designed to enhance
+              productivity, creativity, and daily interactions. Find your next
+              digital assistant today!
+            </p>
+            <div className="mt-6 flex justify-between pr-8">
+              <button className="btn h-9 min-h-9 rounded-full border border-purple-950 bg-a-purple-strong px-6 py-0 text-[15px] font-normal text-white shadow-md hover:bg-violet-900">
+                Discover
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.4583 9.77139H3.95831"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <path
+                    d="M11.4168 4.75107L16.4585 9.77107L11.4168 14.7919"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <div className="avatar-group  -space-x-6 rtl:space-x-reverse">
+                <div className="avatar border-slate-200 bg-white ">
+                  <div className="size-8">
+                    <img src={avatars[1]} />
+                  </div>
+                </div>
+                <div className="avatar border-slate-200 bg-white">
+                  <div className="size-8">
+                    <img src={avatars[2]} />
+                  </div>
+                </div>
+                <div className="avatar border-slate-200 bg-white">
+                  <div className="size-8">
+                    <img src={avatars[4]} />
+                  </div>
+                </div>
+                <div className="avatar placeholder">
+                  <div className="size-8 bg-neutral text-neutral-content">
+                    <span>+99</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
 }
 
 export default BotInfoCard
+/* Frame 61 */

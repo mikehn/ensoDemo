@@ -4,7 +4,7 @@ import React from 'react'
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex w-full flex-col bg-main">
-      <div className="h-16">
+      <div className="h-[74px]">
         <Header />
       </div>
       <div className="h-full">{children}</div>

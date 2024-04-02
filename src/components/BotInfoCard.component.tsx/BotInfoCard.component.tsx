@@ -158,8 +158,8 @@ const BotInfoCard = ({ className, avatar, bid }: Props) => {
                     <img src={avatars[4]} />
                   </div>
                 </div>
-                <div className="avatar placeholder">
-                  <div className="size-8 bg-neutral text-neutral-content">
+                <div className="avatar placeholder ">
+                  <div className="size-8 bg-[#7d7eeb] text-white">
                     <span>+99</span>
                   </div>
                 </div>

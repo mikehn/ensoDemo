@@ -1,9 +1,62 @@
+import classNames from 'classnames'
 import Avatar from 'components/Avatar/Avatar.component'
-import React from 'react'
-
+import React, { ReactNode, useEffect, useRef } from 'react'
+import { RandomBotResponse } from 'utils/MockData'
 type Props = { className?: string; avatar: string; bid: number }
+let rCounter = 0
+const InitialMessage = ({ name }: { name: string }) => {
+  const groups = ['E-Commerce', 'Agency', "I'm a freelancer"]
+  const images = ['/ti1.jpeg', '/agency2.jpg', '/freelancer.jpeg']
+  const [selectedId, setSelectedId] = React.useState('')
+  const setSelected = (id: string) => {
+    setSelectedId(id)
+  }
+  return (
+    <div>
+      <p>
+        <b>Hey, {name}!</b> I’m an AI business assistant trained to help you
+        with thought leadership content for Linkedin, to help you establish your
+        brand online.
+        <br />
+        <br />
+        I’m trained to look for the most viral and engaging Linkedin content
+        formats. I’ll prepare daily content drafts and ask you to choose the
+        ones I think would fit best your online persona.
+      </p>
+      <h2 className="mt-8 text-xl font-semibold">
+        Lets choose your type of business
+      </h2>
+      <div className="flex flex-wrap align-middle">
+        {groups.map((group, i) => (
+          <BizTypeGroup
+            key={group}
+            image={images[i]}
+            title={group}
+            onClick={setSelected}
+            isSelected={selectedId == group}
+            id={group}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+function getRandomResponse() {
+  rCounter = rCounter + (1 % RandomBotResponse.length)
+  return RandomBotResponse[rCounter]
+}
 
 const BotTaskPane = ({ className, avatar }: Props) => {
+  const [messageList, setMessageList] = React.useState<ReactNode[]>([
+    <InitialMessage key={0} name={'Mike'} />
+  ])
+  const endOfList = useRef<null | HTMLDivElement>(null)
+
+  const scrollToBottom = () => {
+    endOfList.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className={'card h-full w-96 bg-base-100 shadow-xl ' + className}>
       <div className="flex size-full flex-col content-start items-start justify-start">
@@ -11,21 +64,54 @@ const BotTaskPane = ({ className, avatar }: Props) => {
           <TaskOverview />
         </div>
         <div className="card-body h-3/5 w-full overflow-y-auto border-b-2 border-[#231269]/10  bg-[#F9F8FF] px-8 pb-0 pt-[4vh] 2xl:px-[10%] ">
-          <TaskDescription avatar={avatar} />
+          <TaskDescription avatar={avatar} messages={messageList} />
         </div>
         <div className="card-body flex h-40 w-full justify-end">
-          <TaskQuery />
+          <TaskQuery
+            onMessageAdd={(m) => {
+              setMessageList((prev) => [
+                ...prev,
+                <div key={m.length}>{m}</div>,
+                <LoadingDots key={m.length + 1}>
+                  {getRandomResponse()}
+                  <div ref={endOfList}></div>
+                </LoadingDots>
+              ])
+              setTimeout(() => scrollToBottom(), 100)
+            }}
+          />
         </div>
       </div>
     </div>
   )
 }
 
-const TaskQuery = () => {
+const TaskQuery = ({
+  onMessageAdd
+}: {
+  onMessageAdd: (msg: string) => void
+}) => {
+  const [text, setText] = React.useState('')
+  const addMessage = (msg: string) => {
+    setText('')
+    onMessageAdd(msg)
+  }
+  const handleKeyDown = (event: { key: string }) => {
+    if (event.key === 'Enter') addMessage(text)
+  }
   return (
     <label className="input flex w-full items-center gap-2 border-[#231269]/10 outline-none  ">
-      <input type="text" className="grow" placeholder="Ask me Anything" />
+      <input
+        type="text"
+        value={text}
+        className="grow"
+        placeholder="Ask me Anything"
+        onChange={(e) => setText(e.target.value)}
+        onKeyDown={handleKeyDown}
+      />
+
       <svg
+        onClick={() => addMessage(text)}
         className="text-purple-400 hover:scale-110 hover:fill-current"
         width="20"
         height="20"
@@ -52,46 +138,35 @@ const TaskQuery = () => {
   )
 }
 
-const TaskDescription = ({ avatar }: { avatar: string }) => {
-  const [selectedId, setSelectedId] = React.useState('')
-  const setSelected = (id: string) => {
-    setSelectedId(id)
-  }
-  const groups = ['E-Commerce', 'Agency', "I'm a freelancer"]
-  const images = ['/ti1.jpeg', '/agency2.jpg', '/freelancer.jpeg']
+const TaskDescription = ({
+  avatar,
+  messages
+}: {
+  avatar: string
+  messages: ReactNode[]
+}) => {
   return (
     <div className="w-full">
-      <Avatar
-        avatar={avatar}
-        selected={false}
-        onClick={() => {}}
-        isDisplayOnly={true}
-      />
-      <p className="">
-        <b>Hey, Gilad!</b> I’m an AI business assistant trained to help you with
-        thought leadership content for Linkedin, to help you establish your
-        brand online.
-        <br />
-        <br />
-        I’m trained to look for the most viral and engaging Linkedin content
-        formats. I’ll prepare daily content drafts and ask you to choose the
-        ones I think would fit best your online persona.
-      </p>
-      <h2 className="mt-8 text-xl font-semibold">
-        Lets choose your type of business
-      </h2>
-      <div className="flex flex-wrap align-middle">
-        {groups.map((group, i) => (
-          <BizTypeGroup
-            key={group}
-            image={images[i]}
-            title={group}
-            onClick={setSelected}
-            isSelected={selectedId == group}
-            id={group}
-          />
-        ))}
-      </div>
+      {messages.map((message, i) => (
+        <div key={i} className="mb-8">
+          {i % 2 == 0 ? (
+            <Avatar
+              avatar={avatar}
+              selected={false}
+              onClick={() => {}}
+              isDisplayOnly={true}
+            />
+          ) : (
+            <div className="avatar mr-2">
+              <div className="w-12 rounded-full border-2 border-slate-300">
+                <img src="/bp.png" />
+              </div>
+            </div>
+          )}
+          {message}
+          {/* <div className="divider"></div> */}
+        </div>
+      ))}
     </div>
   )
 }
@@ -128,6 +203,43 @@ const BizTypeGroup = ({
         />
         <div className="text-base">{title}</div>
       </div>
+    </div>
+  )
+}
+
+const Dot = ({ className }: { className: string }) => {
+  return (
+    <div
+      className={classNames(
+        'animate animate-bounce mx-1 size-2 rounded-full',
+        className
+      )}
+    ></div>
+  )
+}
+
+const LoadingDots = ({ children }: { children: ReactNode }) => {
+  const [showChildren, setShowChildren] = React.useState(false)
+  useEffect(() => {
+    const interval = setTimeout(
+      () => {
+        setShowChildren(true)
+      },
+      Math.random() * 2800 + 1000
+    )
+    return () => clearInterval(interval)
+  }, [])
+  return (
+    <div className="flex justify-start">
+      {!showChildren ? (
+        <div className="flex items-center justify-center">
+          <Dot className="bg-a-purple-strong" />
+          <Dot className="bg-a-purple-strong/50 animate-delay-150" />
+          <Dot className="bg-a-purple-strong/35 animate-delay-300" />
+        </div>
+      ) : (
+        children
+      )}
     </div>
   )
 }

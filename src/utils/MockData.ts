@@ -186,3 +186,31 @@ export const Tasks = [
     id: '10'
   }
 ]
+
+export const RandomBotResponse = [
+  'Great!',
+  "That's interesting.",
+  'Really?',
+  'Why do you think that is?',
+  'Fascinating!',
+  "I hadn't thought of it that way.",
+  'Can you tell me more?',
+  'That sounds exciting!',
+  'How did that happen?',
+  'Wow, I see!',
+  'Indeed?',
+  "That's quite something!",
+  'Oh, intriguing!',
+  'Hmm, I understand.',
+  'Yes, tell me more!',
+  'And then what happened?',
+  "That's quite a perspective.",
+  'Absolutely!',
+  'How fascinating!',
+  'What else can you share?',
+  'Do go on.',
+  "That's a good point.",
+  'Very curious!',
+  "I'm eager to hear more.",
+  'How remarkable!'
+]

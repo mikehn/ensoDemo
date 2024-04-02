@@ -158,7 +158,7 @@ const TaskOverview = () => {
         <h4 className="text-sm">progress</h4>
         <progress
           className="progress progress-primary w-full"
-          value="10"
+          value={Math.random() * 40 + 5}
           max="100"
         ></progress>
       </div>

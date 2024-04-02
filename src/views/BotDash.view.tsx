@@ -11,9 +11,9 @@ const BotDash = () => {
   if (!id) id = '0'
   const navigate = useNavigate()
   return (
-    <div className="flex h-[calc(100vh-80px)]">
+    <div className="flex h-[calc(100vh-100px)]">
       <AvatarList
-        className="h-full shadow-lg"
+        className="h-full border border-DEFAULT border-a-purple-border/15 shadow-lg"
         avatars={avatarImages}
         selected={id || ''}
         onClick={(id) => {
@@ -27,18 +27,18 @@ const BotDash = () => {
         }}
       />
       <BotInfoCard
-        className="my-[10px] h-full min-h-full"
+        className="my-[10px] h-full min-h-full rounded-3xl border border-DEFAULT border-a-purple-border/15"
         avatar={avatarImages[Number(id)]}
         bid={Number(id) || 0}
       />
 
       <BotTaskPane
-        className="mx-4 my-[10px] grow shadow-lg"
+        className="mx-4 my-[10px] grow border border-DEFAULT border-a-purple-border/15 shadow-lg"
         avatar={avatarImages[Number(id)]}
         bid={Number(id) || 0}
       />
 
-      <BotTaskListPane className="my-[10px] ml-2 mr-4 w-1/4 shadow-lg" />
+      <BotTaskListPane className="my-[10px] ml-2 mr-4 w-2/12 min-w-[460px] border  border-DEFAULT border-a-purple-border/15 shadow-lg" />
 
       {/* TODO: Extract to modal component */}
       <dialog id="my_modal_1" className="modal">

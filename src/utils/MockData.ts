@@ -113,3 +113,76 @@ export const randNames = [
     last_name: 'Shellum'
   }
 ]
+
+export const Tasks = [
+  {
+    title: 'Task #1',
+    description:
+      'Explore industry magazines, blogs, and other sources for compelling topics to write about.',
+    status: 'Completed',
+    id: '1'
+  },
+  {
+    title: 'Task #2',
+    description:
+      'Researching the best format for an engaging and viral LinkedIn post.',
+    status: 'Up Next',
+    id: '2'
+  },
+  {
+    title: 'Task #3',
+    description:
+      'Compile a list of influencers and thought leaders to engage with for content amplification.',
+    status: 'Waiting...',
+    id: '3'
+  },
+  {
+    title: 'Task #4',
+    description:
+      "Analyze competitors' social media strategies to identify gaps and opportunities.",
+    status: 'Waiting...',
+    id: '4'
+  },
+  {
+    title: 'Task #5',
+    description:
+      'Develop a content calendar for the next quarter, focusing on key industry events and trends.',
+    status: 'Waiting...',
+    id: '5'
+  },
+  {
+    title: 'Task #6',
+    description:
+      "Update the company's website content to reflect the latest product updates and features.",
+    status: 'Waiting...',
+    id: '6'
+  },
+  {
+    title: 'Task #7',
+    description:
+      'Organize a webinar with a well-known industry expert to discuss future trends.',
+    status: 'Waiting...',
+    id: '7'
+  },
+  {
+    title: 'Task #8',
+    description:
+      'Create a detailed report on customer feedback from the last quarter, highlighting areas for improvement.',
+    status: 'Waiting...',
+    id: '8'
+  },
+  {
+    title: 'Task #9',
+    description:
+      'Design a survey to gather insights on customer satisfaction with the new product line.',
+    status: 'Waiting...',
+    id: '9'
+  },
+  {
+    title: 'Task #10',
+    description:
+      'Plan and execute a social media campaign for the upcoming holiday season.',
+    status: 'Waiting...',
+    id: '10'
+  }
+]

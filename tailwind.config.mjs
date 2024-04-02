@@ -8,7 +8,8 @@ export default {
       ...colors,
       main: '#fafafa',
       'a-purple-strong': '#4546F7',
-      'a-purple-light': '#D6CFFE'
+      'a-purple-light': '#D6CFFE',
+      'a-purple-border': '#231269'
     },
     extend: {}
   },

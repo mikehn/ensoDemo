@@ -11,7 +11,7 @@ const BotDash = () => {
   if (!id) id = '0'
   const navigate = useNavigate()
   return (
-    <div className="flex h-[calc(100%-32px)]">
+    <div className="flex h-[calc(100vh-80px)]">
       <AvatarList
         className="h-full shadow-lg"
         avatars={avatarImages}

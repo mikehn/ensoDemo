@@ -21,7 +21,7 @@ const AvatarList = ({
   return (
     <div
       className={
-        'flex h-full w-18 min-w-18 flex-col justify-start  overflow-y-auto  p-2 pt-4 mx-4 mt-2 overflow-hidden rounded-xl border-2  border-slate-200 bg-white' +
+        'flex h-full w-16 min-w-16 flex-col justify-start  overflow-y-auto  p-2 pt-4 mx-4 mt-2 overflow-hidden rounded-xl border-2  border-slate-200 bg-white' +
         className
       }
     >

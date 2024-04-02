@@ -10,7 +10,7 @@ const BotTaskPane = ({ className, avatar }: Props) => {
         <div className="card-body h-20 min-h-44 w-full border-b-2 border-[#231269]/10 ">
           <TaskOverview />
         </div>
-        <div className="card-body h-3/5 bg-[#F9F8FF] px-8 py-20  2xl:px-[20%] ">
+        <div className="card-body h-3/5 w-full overflow-y-auto border-b-2 border-[#231269]/10  bg-[#F9F8FF] px-8 pb-0 pt-[4vh] 2xl:px-[10%] ">
           <TaskDescription avatar={avatar} />
         </div>
         <div className="card-body flex h-40 w-full justify-end">
@@ -53,8 +53,14 @@ const TaskQuery = () => {
 }
 
 const TaskDescription = ({ avatar }: { avatar: string }) => {
+  const [selectedId, setSelectedId] = React.useState('')
+  const setSelected = (id: string) => {
+    setSelectedId(id)
+  }
+  const groups = ['E-Commerce', 'Agency', "I'm a freelancer"]
+  const images = ['/ti1.jpeg', '/agency2.jpg', '/freelancer.jpeg']
   return (
-    <div>
+    <div className="w-full">
       <Avatar
         avatar={avatar}
         selected={false}
@@ -71,9 +77,57 @@ const TaskDescription = ({ avatar }: { avatar: string }) => {
         formats. I’ll prepare daily content drafts and ask you to choose the
         ones I think would fit best your online persona.
       </p>
-      <h2 className="mt-16 text-xl font-semibold">
+      <h2 className="mt-8 text-xl font-semibold">
         Lets choose your type of business
       </h2>
+      <div className="flex flex-wrap align-middle">
+        {groups.map((group, i) => (
+          <BizTypeGroup
+            key={group}
+            image={images[i]}
+            title={group}
+            onClick={setSelected}
+            isSelected={selectedId == group}
+            id={group}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
+const BizTypeGroup = ({
+  id,
+  title,
+  isSelected,
+  image,
+  onClick
+}: {
+  id: string
+  title: string
+  isSelected: boolean
+  image: string
+  onClick: (id: string) => void
+}) => {
+  return (
+    <div
+      className="group my-6 mr-4 flex cursor-pointer select-none flex-col transition ease-in-out hover:scale-[101%]"
+      onClick={() => onClick(id)}
+    >
+      <div className="flex h-[8.5rem] w-[10.5rem] content-center justify-center rounded-lg bg-white pt-1 align-middle shadow-sm outline outline-1 outline-a-purple-border/15 group-hover:bg-amber-200">
+        <img className="h-32 w-40 rounded-lg object-cover" src={image} />
+      </div>
+      <div className="ml-1 mt-4 flex w-40 flex-wrap content-center items-center justify-center rounded-3xl border border-a-purple-border/10 bg-white p-2 align-middle group-hover:outline group-hover:outline-1  group-hover:outline-amber-300 ">
+        <input
+          type="radio"
+          id="vehicle1"
+          name="vehicle1"
+          value="Bike"
+          checked={isSelected}
+          className="radio radio-sm mr-2 bg-white shadow-sm checked:bg-slate-600"
+        />
+        <div className="text-base">{title}</div>
+      </div>
     </div>
   )
 }

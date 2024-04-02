@@ -44,7 +44,7 @@ const BotTaskListPane = ({ className }: Props) => {
               onClick={() => {
                 setSelected(group)
               }}
-              className={classNames('m-1 text-[14px]', {
+              className={classNames('m-1 text-[14px] px-2', {
                 [selectedBtnClassName]: selected === group,
                 [defaultClassName]: selected !== group
               })}

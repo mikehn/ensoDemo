@@ -21,6 +21,6 @@ export default {
   },
   plugins: [require('daisyui'), require('tailwindcss-animated')],
   daisyui: {
-    themes: []
+    themes: ['light']
   }
 }

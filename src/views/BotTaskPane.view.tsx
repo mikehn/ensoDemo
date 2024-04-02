@@ -10,7 +10,7 @@ const BotTaskPane = ({ className, avatar }: Props) => {
         <div className="card-body h-20 min-h-44 w-full border-b-2 border-[#231269]/10 ">
           <TaskOverview />
         </div>
-        <div className="card-body h-3/5 bg-[#F9F8FF] px-8 py-20 2xl:px-72 ">
+        <div className="card-body h-3/5 bg-[#F9F8FF] px-8 py-20  2xl:px-[20%] ">
           <TaskDescription avatar={avatar} />
         </div>
         <div className="card-body flex h-40 w-full justify-end">

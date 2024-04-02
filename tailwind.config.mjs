@@ -11,7 +11,12 @@ export default {
       'a-purple-light': '#D6CFFE',
       'a-purple-border': '#231269'
     },
-    extend: {}
+    extend: {
+      screens: {
+        short: { raw: '(max-height: 880px)' }
+        // => @media (min-height: 800px) { ... }
+      }
+    }
   },
   plugins: [require('daisyui'), require('tailwindcss-animated')]
 }

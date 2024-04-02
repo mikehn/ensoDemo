@@ -20,12 +20,15 @@ const Avatar = ({
       onClick={onClick}
     >
       <div
-        className={classNames('min-w-12 w-12 rounded-full', {
-          'border-[2px] bg-orange-200 border-a-purple-strong outline  outline-[4px] outline-a-purple-light animate-jump animate-once animate-ease-in ':
-            selected,
-          ['border-[3px] transition bg-white border-gray-200 ' + hoverClasses]:
-            !selected
-        })}
+        className={classNames(
+          'min-w-12 w-12 short:w-10 short:min-w-10 rounded-full',
+          {
+            'border-[2px] bg-orange-200 border-a-purple-strong outline  outline-[4px] outline-a-purple-light animate-jump animate-once animate-ease-in ':
+              selected,
+            ['border-[3px] transition bg-white border-gray-200 ' +
+            hoverClasses]: !selected
+          }
+        )}
       >
         <img src={avatar} />
       </div>

@@ -38,7 +38,7 @@ const BotDash = () => {
         bid={Number(id) || 0}
       />
 
-      <BotTaskListPane className="my-[10px] ml-2 mr-4 w-2/12 min-w-[468px] border  border-DEFAULT border-a-purple-border/15 shadow-lg" />
+      <BotTaskListPane className="my-[10px] ml-2 mr-4 w-2/12 min-w-[468px] overflow-hidden  rounded-3xl border border-DEFAULT border-a-purple-border/15 shadow-lg" />
 
       {/* TODO: Extract to modal component */}
       <dialog id="my_modal_1" className="modal">

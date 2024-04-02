@@ -71,7 +71,9 @@ const BotTaskPane = ({ className, avatar }: Props) => {
             onMessageAdd={(m) => {
               setMessageList((prev) => [
                 ...prev,
-                <div key={m.length}>{m}</div>,
+                <div key={m.length} className="ml-1">
+                  {m}
+                </div>,
                 <LoadingDots key={m.length + 1}>
                   {getRandomResponse()}
                   <div ref={endOfList}></div>
@@ -157,14 +159,13 @@ const TaskDescription = ({
               isDisplayOnly={true}
             />
           ) : (
-            <div className="avatar mr-2">
+            <div className="avatar mb-2 mr-2">
               <div className="w-12 rounded-full border-2 border-slate-300">
                 <img src="/bp.png" />
               </div>
             </div>
           )}
           {message}
-          {/* <div className="divider"></div> */}
         </div>
       ))}
     </div>
@@ -238,7 +239,7 @@ const LoadingDots = ({ children }: { children: ReactNode }) => {
           <Dot className="bg-a-purple-strong/35 animate-delay-300" />
         </div>
       ) : (
-        children
+        <div className="ml-1">{children}</div>
       )}
     </div>
   )
